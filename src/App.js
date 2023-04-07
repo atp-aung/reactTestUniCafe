@@ -15,9 +15,9 @@ const App = () => {
       <button
         onClick={() => {
           setGood(good + 1);
-          let updScore = score + 1;
+          const updScore = score + 1;
           setScore(updScore);
-          let updAll = all + 1;
+          const updAll = all + 1;
           setAll(updAll);
           setAvg(updScore / updAll);
         }}
@@ -27,9 +27,9 @@ const App = () => {
       <button
         onClick={() => {
           setNeutral(neutral + 1);
-          let updScore = score + 0;
+          const updScore = score + 0;
           setScore(updScore);
-          let updAll = all + 1;
+          const updAll = all + 1;
           setAll(updAll);
           setAvg(updScore / updAll);
         }}
@@ -39,9 +39,9 @@ const App = () => {
       <button
         onClick={() => {
           setBad(bad + 1);
-          let updScore = score - 1;
+          const updScore = score - 1;
           setScore(updScore);
-          let updAll = all + 1;
+          const updAll = all + 1;
           setAll(updAll);
           setAvg(updScore / updAll);
         }}
