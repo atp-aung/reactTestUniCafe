@@ -1,5 +1,18 @@
 import { useState } from "react";
 
+const Statistics = (p) => {
+  return (
+    <>
+      <h1>Statistics</h1>
+      <p>good {p.good}</p>
+      <p>neutral {p.neutral}</p>
+      <p>bad {p.bad}</p>
+      <p>all {p.all}</p>
+      <p>average {p.avg}</p>
+      <p>postive {p.pos * 100} %</p>
+    </>
+  );
+};
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
@@ -9,6 +22,7 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [avg, setAvg] = useState(0);
   const [pos, setPos] = useState(0);
+  const [stas, setStas] = useState("no feedback");
 
   return (
     <div>
@@ -21,49 +35,76 @@ const App = () => {
           setScore(updScore);
           const updAll = all + 1;
           setAll(updAll);
-          setAvg(updScore / updAll);
-          setPos(updGood / updAll);
+          const updAvg = updScore / updAll;
+          console.log(updAvg);
+          setAvg(updAvg);
+          const updPos = updGood / updAll;
+          setPos(updPos);
+          setStas(
+            <Statistics
+              good={updGood}
+              neutral={neutral}
+              bad={bad}
+              all={updAll}
+              avg={updAvg}
+              pos={updPos}
+            />
+          );
         }}
       >
         good
       </button>
       <button
         onClick={() => {
-          const updGood = good + 0;
-          setGood(updGood);
-          setNeutral(neutral + 1);
-          const updScore = score + 0;
-          setScore(updScore);
+          const updNeu = neutral + 1;
+          setNeutral(updNeu);
           const updAll = all + 1;
           setAll(updAll);
-          setAvg(updScore / updAll);
-          setPos(updGood / updAll);
+          const updAvg = score / updAll;
+          setAvg(updAvg);
+          const updPos = good / updAll;
+          setPos(updPos);
+          setStas(
+            <Statistics
+              good={good}
+              neutral={updNeu}
+              bad={bad}
+              all={updAll}
+              avg={updAvg}
+              pos={updPos}
+            />
+          );
         }}
       >
         neutral
       </button>
       <button
         onClick={() => {
-          const updGood = good + 0;
-          setGood(updGood);
-          setBad(bad + 1);
+          const updBad = bad + 1;
+          setBad(updBad);
           const updScore = score - 1;
           setScore(updScore);
           const updAll = all + 1;
           setAll(updAll);
-          setAvg(updScore / updAll);
-          setPos(updGood / updAll);
+          const updAvg = updScore / updAll;
+          setAvg(updAvg);
+          const updPos = good / updAll;
+          setPos(updPos);
+          setStas(
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={updBad}
+              all={updAll}
+              avg={updAvg}
+              pos={updPos}
+            />
+          );
         }}
       >
         bad
       </button>
-      <h1>Statistics</h1>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {all}</p>
-      <p>average {avg}</p>
-      <p>postive {pos * 100} %</p>
+      <div>{stas}</div>
     </div>
   );
 };
