@@ -1,18 +1,6 @@
 import { useState } from "react";
+import Statistics from "./Statistics";
 
-const Statistics = (p) => {
-  return (
-    <>
-      <h1>Statistics</h1>
-      <p>good: {p.good}</p>
-      <p>neutral: {p.neutral}</p>
-      <p>bad: {p.bad}</p>
-      <p>all: {p.all}</p>
-      <p>average: {p.avg}</p>
-      <p>postive: {p.pos * 100} %</p>
-    </>
-  );
-};
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
