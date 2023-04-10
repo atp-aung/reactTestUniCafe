@@ -1,9 +1,14 @@
 const StasLine = (sl) => {
   if (sl.text === "good") {
     return (
-      <p>
-        {sl.text}: {sl.v}
-      </p>
+      <table>
+        <td>
+          <tbody>{sl.text}:</tbody>
+        </td>
+        <td>
+          <tbody>{sl.v}</tbody>
+        </td>
+      </table>
     );
   }
   if (sl.text === "neutral") {

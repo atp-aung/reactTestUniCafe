@@ -21,7 +21,6 @@ const App = () => {
     const updAll = all + 1;
     setAll(updAll);
     const updAvg = updScore / updAll;
-    console.log(updAvg);
     setAvg(updAvg);
     const updPos = updGood / updAll;
     setPos(updPos);
