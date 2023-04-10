@@ -1,13 +1,14 @@
-const Statistics = (p) => {
+import StasLine from "./StasLine";
+const Statistics = (s) => {
   return (
     <>
       <h1>Statistics</h1>
-      <p>good: {p.good}</p>
-      <p>neutral: {p.neutral}</p>
-      <p>bad: {p.bad}</p>
-      <p>all: {p.all}</p>
-      <p>average: {p.avg}</p>
-      <p>postive: {p.pos * 100} %</p>
+      <StasLine text="good" v={s.good} />
+      <StasLine text="neutral" v={s.neutral} />
+      <StasLine text="bad" v={s.bad} />
+      <StasLine text="all" v={s.all} />
+      <StasLine text="average" v={s.avg} />
+      <StasLine text="postive" v={s.pos} />
     </>
   );
 };
